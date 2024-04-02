@@ -1,6 +1,6 @@
 name: Build Flutter Windows Application
 
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.10.3' # 根据你的pubspec.yaml中的Flutter版本要求修改
+        flutter-version: '3.16.0' # 根据你的pubspec.yaml中的Flutter版本要求修改
 
     - name: Install dependencies
       run: flutter pub get
