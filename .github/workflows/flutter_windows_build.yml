@@ -13,7 +13,7 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.0.3' # 根据你的pubspec.yaml中的Flutter版本要求修改
+        flutter-version: '3.19.5' # 根据你的pubspec.yaml中的Flutter版本要求修改
 
     - name: Install dependencies
       run: flutter pub get
