@@ -1,0 +1,29 @@
+
+name: Build Flutter Android Application
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest # Using Ubuntu as the build environment for Android
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.10.3' # Modify according to your pubspec.yaml Flutter version requirement
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build APK
+      run: flutter build apk # Change this to `flutter build appbundle` for AppBundle
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: android-build
+        path: build/app/outputs/flutter-apk/app-release.apk
